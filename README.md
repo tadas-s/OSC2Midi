@@ -4,6 +4,12 @@ ESP8266 based OSC <-> Midi wireless bridge.
 
 It is mostly meant to be used with [TouchOSC][1] but of course it will work with any [OSC message source][2].
 
+## Library dependencies
+
+Project uses:
+  * https://github.com/FortySevenEffects/arduino_midi_library/
+  * https://github.com/CNMAT/OSC
+
 ## Hardware
 
 This is based on a generic ESP8266 board and the folowing guides to do Midi I/O:
