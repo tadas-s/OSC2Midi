@@ -13,7 +13,7 @@ WiFiUDP udp;
 */
 IPAddress clientIP;
 
-SoftwareSerial midiSerialPort(4, 5);
+SoftwareSerial midiSerialPort(4, 5); // RX, TX pins to be used for ss port
 
 MIDI_CREATE_INSTANCE(SoftwareSerial, midiSerialPort, MIDI);
 
