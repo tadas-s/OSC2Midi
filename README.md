@@ -13,8 +13,8 @@ Project uses:
 ## Hardware
 
 This is based on a generic ESP8266 board and the folowing guides to do Midi I/O:
- * [Input][3]
- * [Output][4]
+ * [Input][4]
+ * [Output][3]
 
 Midi I/O uses [SoftwareSerial][5] mostly to allow debug logging via primary serial port.
 
