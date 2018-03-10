@@ -119,8 +119,8 @@ L R R2
 U 1 1 5AA0E7F1
 P 7650 4100
 F 0 "R2" V 7730 4100 50  0000 C CNN
-F 1 "430R" V 7650 4100 50  0000 C CNN
-F 2 "Resistors_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 7580 4100 50  0001 C CNN
+F 1 "220R" V 7650 4100 50  0000 C CNN
+F 2 "Resistors_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 7580 4100 50  0001 C CNN
 F 3 "" H 7650 4100 50  0001 C CNN
 	1    7650 4100
 	0    -1   1    0   
@@ -130,8 +130,8 @@ L R R5
 U 1 1 5AA0E839
 P 6550 4100
 F 0 "R5" V 6630 4100 50  0000 C CNN
-F 1 "430R" V 6550 4100 50  0000 C CNN
-F 2 "Resistors_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 6480 4100 50  0001 C CNN
+F 1 "220R" V 6550 4100 50  0000 C CNN
+F 2 "Resistors_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 6480 4100 50  0001 C CNN
 F 3 "" H 6550 4100 50  0001 C CNN
 	1    6550 4100
 	0    -1   1    0   
@@ -166,13 +166,13 @@ $EndComp
 $Comp
 L D D1
 U 1 1 5AA1AFB6
-P 8300 5700
-F 0 "D1" H 8300 5800 50  0000 C CNN
-F 1 "D" H 8300 5600 50  0000 C CNN
-F 2 "Diodes_THT:D_DO-41_SOD81_P10.16mm_Horizontal" H 8300 5700 50  0001 C CNN
-F 3 "" H 8300 5700 50  0001 C CNN
-	1    8300 5700
-	-1   0    0    1   
+P 8050 5400
+F 0 "D1" H 8050 5500 50  0000 C CNN
+F 1 "D" H 8050 5300 50  0000 C CNN
+F 2 "Diodes_THT:D_A-405_P10.16mm_Horizontal" H 8050 5400 50  0001 C CNN
+F 3 "" H 8050 5400 50  0001 C CNN
+	1    8050 5400
+	0    -1   -1   0   
 $EndComp
 $Comp
 L R R1
@@ -180,13 +180,11 @@ U 1 1 5AA1B0FD
 P 8700 5700
 F 0 "R1" V 8780 5700 50  0000 C CNN
 F 1 "220R" V 8700 5700 50  0000 C CNN
-F 2 "Resistors_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 8630 5700 50  0001 C CNN
+F 2 "Resistors_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 8630 5700 50  0001 C CNN
 F 3 "" H 8700 5700 50  0001 C CNN
 	1    8700 5700
 	0    1    1    0   
 $EndComp
-Wire Wire Line
-	8450 5700 8550 5700
 Wire Wire Line
 	8850 5700 8950 5700
 Wire Wire Line
@@ -194,30 +192,14 @@ Wire Wire Line
 Wire Wire Line
 	8950 5100 8800 5100
 Wire Wire Line
-	8050 5700 8150 5700
-Wire Wire Line
 	8050 5100 8200 5100
-Wire Wire Line
-	8500 5700 8500 5850
-Wire Wire Line
-	8500 5850 7950 5850
-Wire Wire Line
-	7950 5850 7950 5350
-Connection ~ 8500 5700
-Wire Wire Line
-	7950 5350 7850 5350
-Wire Wire Line
-	8050 5100 8050 5700
-Wire Wire Line
-	8050 5550 7850 5550
-Connection ~ 8050 5550
 $Comp
 L R R3
 U 1 1 5AA1C317
 P 7150 5150
 F 0 "R3" V 7230 5150 50  0000 C CNN
 F 1 "470R" V 7150 5150 50  0000 C CNN
-F 2 "Resistors_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 7080 5150 50  0001 C CNN
+F 2 "Resistors_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 7080 5150 50  0001 C CNN
 F 3 "" H 7150 5150 50  0001 C CNN
 	1    7150 5150
 	0    -1   1    0   
@@ -228,7 +210,7 @@ U 1 1 5AA1C352
 P 7150 5400
 F 0 "R4" V 7230 5400 50  0000 C CNN
 F 1 "10K" V 7150 5400 50  0000 C CNN
-F 2 "Resistors_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 7080 5400 50  0001 C CNN
+F 2 "Resistors_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 7080 5400 50  0001 C CNN
 F 3 "" H 7150 5400 50  0001 C CNN
 	1    7150 5400
 	0    -1   1    0   
@@ -368,7 +350,7 @@ U 1 1 5AA24112
 P 3750 4650
 F 0 "R6" V 3830 4650 50  0000 C CNN
 F 1 "1K" V 3750 4650 50  0000 C CNN
-F 2 "Resistors_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal" V 3680 4650 50  0001 C CNN
+F 2 "Resistors_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 3680 4650 50  0001 C CNN
 F 3 "" H 3750 4650 50  0001 C CNN
 	1    3750 4650
 	0    1    1    0   
@@ -528,11 +510,6 @@ F 3 "" H 6400 1850 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	4850 1850 5150 1850
-Wire Wire Line
-	5050 1950 5050 1850
-Connection ~ 5050 1850
-Wire Wire Line
 	5750 1850 6400 1850
 Wire Wire Line
 	5850 1850 5850 1950
@@ -541,15 +518,12 @@ Wire Wire Line
 Connection ~ 5850 1850
 Connection ~ 6200 1850
 Wire Wire Line
-	4850 2350 6200 2350
+	4500 2350 6200 2350
 Wire Wire Line
 	6200 2350 6200 2250
 Wire Wire Line
 	5850 2250 5850 2350
 Connection ~ 5850 2350
-Wire Wire Line
-	5050 2250 5050 2350
-Connection ~ 5050 2350
 Wire Wire Line
 	5450 2150 5450 2450
 Connection ~ 5450 2350
@@ -578,23 +552,68 @@ NoConn ~ 4200 4450
 $Comp
 L Conn_01x01_Male J4
 U 1 1 5AA3271F
-P 4650 1850
-F 0 "J4" H 4650 1950 50  0000 C CNN
-F 1 "Bat+" H 4650 1750 50  0000 C CNN
-F 2 "Wire_Pads:SolderWirePad_single_0-8mmDrill" H 4650 1850 50  0001 C CNN
-F 3 "" H 4650 1850 50  0001 C CNN
-	1    4650 1850
+P 4300 1850
+F 0 "J4" H 4300 1950 50  0000 C CNN
+F 1 "Bat+" H 4300 1750 50  0000 C CNN
+F 2 "Wire_Pads:SolderWirePad_single_0-8mmDrill" H 4300 1850 50  0001 C CNN
+F 3 "" H 4300 1850 50  0001 C CNN
+	1    4300 1850
 	1    0    0    -1  
 $EndComp
 $Comp
 L Conn_01x01_Male J5
 U 1 1 5AA327AB
-P 4650 2350
-F 0 "J5" H 4650 2450 50  0000 C CNN
-F 1 "Bat-" H 4650 2250 50  0000 C CNN
-F 2 "Wire_Pads:SolderWirePad_single_0-8mmDrill" H 4650 2350 50  0001 C CNN
-F 3 "" H 4650 2350 50  0001 C CNN
-	1    4650 2350
+P 4300 2350
+F 0 "J5" H 4300 2450 50  0000 C CNN
+F 1 "Bat-" H 4300 2250 50  0000 C CNN
+F 2 "Wire_Pads:SolderWirePad_single_0-8mmDrill" H 4300 2350 50  0001 C CNN
+F 3 "" H 4300 2350 50  0001 C CNN
+	1    4300 2350
 	1    0    0    -1  
 $EndComp
+Wire Wire Line
+	8050 5100 8050 5250
+Wire Wire Line
+	8050 5550 8050 5700
+Wire Wire Line
+	8050 5700 8550 5700
+Wire Wire Line
+	7850 5550 7900 5550
+Wire Wire Line
+	7900 5550 7900 5200
+Wire Wire Line
+	7900 5200 8050 5200
+Connection ~ 8050 5200
+Wire Wire Line
+	7850 5350 7950 5350
+Wire Wire Line
+	7950 5350 7950 5600
+Wire Wire Line
+	7950 5600 8050 5600
+Connection ~ 8050 5600
+$Comp
+L CP C5
+U 1 1 5AA5095E
+P 4700 2100
+F 0 "C5" H 4725 2200 50  0000 L CNN
+F 1 "220uF" H 4725 2000 50  0000 L CNN
+F 2 "Capacitors_THT:CP_Radial_D5.0mm_P2.50mm" H 4738 1950 50  0001 C CNN
+F 3 "" H 4700 2100 50  0001 C CNN
+	1    4700 2100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4500 1850 5150 1850
+Connection ~ 5050 1850
+Wire Wire Line
+	5050 1850 5050 1950
+Wire Wire Line
+	5050 2250 5050 2350
+Connection ~ 5050 2350
+Wire Wire Line
+	4700 1950 4700 1850
+Connection ~ 4700 1850
+Wire Wire Line
+	4700 2250 4700 2350
+Connection ~ 4700 2350
 $EndSCHEMATC
