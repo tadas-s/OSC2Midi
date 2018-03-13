@@ -23,6 +23,12 @@ up ESP8266 and do MIDI i/o:
 Midi I/O uses [SoftwareSerial][5] mostly to allow debug logging via
 primary serial port.
 
+## Hardware ideas / roadmap / TODO
+
+  * Find a reasonable enclosure and adapt layout to it.
+  * [MCP73833][8] based battery charging circuit + microusb input for power.
+  * Maaaaybe i2c screen.
+
 ## OSC message formats
 
 All messages are expected to have payload of 1 or 2 floats with range
@@ -56,3 +62,4 @@ meant to be used with TouchOSC XY pads.
 [5]: https://www.arduino.cc/en/Reference/SoftwareSerial
 [6]: http://www.agcross.com/2015/09/the-esp8266-wifi-chip-part-3-flashing-custom-firmware/
 [7]: http://www.korg.com/us/products/synthesizers/microkorg/
+[8]: https://www.microchip.com/wwwproducts/en/en027785
