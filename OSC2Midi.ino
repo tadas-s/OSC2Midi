@@ -18,13 +18,14 @@ SoftwareSerial midiSerialPort(4, 5); // RX, TX pins to be used for ss port
 MIDI_CREATE_INSTANCE(SoftwareSerial, midiSerialPort, MIDI);
 
 void setup() {
+  delay(1000); // very important bit for Access Point to work properly... ¯\_(ツ)_/¯
+  
   Serial.begin(115200);
   Serial.println();
   Serial.println("Hello OSC2Midi!");
   Serial.println();
 
-  WiFi.mode(WIFI_AP_STA);
-  WiFi.softAP("OSC2Midi", "midi2osc");
+  WiFi.softAP("OSC2Midi", "Midi2OSCGateway");
   Serial.print("AP IP address: ");
   Serial.println(WiFi.softAPIP());
 
