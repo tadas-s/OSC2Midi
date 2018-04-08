@@ -33,6 +33,11 @@ void setup() {
   udp.begin(8000);
 
   MIDI.setHandleControlChange(MidiCCToOSC);
+
+  // The MIDI input used in project is always pulled high,
+  // so don't try to "fight" and pull the input pin up as well
+  pinMode(4, INPUT_PULLUP);
+  pinMode(5, OUTPUT);
   midiSerialPort.begin(31250);
 }
 
