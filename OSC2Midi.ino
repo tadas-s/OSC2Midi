@@ -119,7 +119,7 @@ void MidiCCToOSC(uint8_t channel, uint8_t number, uint8_t value) {
   Serial.print(" ");
   Serial.println(value * 1.0);
 
-  udp.beginPacket(clientIP, 8000);
+  udp.beginPacket(clientIP, 8001);
   msg.send(udp);
   udp.endPacket();
 }
