@@ -690,4 +690,6 @@ Wire Wire Line
 	7350 3100 7350 3300
 Wire Wire Line
 	7350 3300 7450 3300
+Text Notes 4950 3050 0    60   ~ 0
+TODO: solder GPIO16 back and test it
 $EndSCHEMATC
