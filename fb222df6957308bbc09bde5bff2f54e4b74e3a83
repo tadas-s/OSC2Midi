@@ -1,0 +1,2 @@
+This is completely broken due to mixing of ESP8266 symbols and footprints
+from different libraries. Reset / boot custom firmware is also incorrect.
