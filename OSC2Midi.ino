@@ -47,29 +47,28 @@ void OSCToMidiCC(OSCMessage &msg, int offset) {
 
   msg.getAddress(address, offset, sizeof(address));
 
-  Serial.print("MSG: ");
-  Serial.println(address);
-
   if (msg.size() == 1 && msg.isFloat(0)) {
     // Single or multi control with sending one value
     cc = getCC(address);
     value = round(msg.getFloat(0));
     value = value > 127 ? 127 : value;
+    Serial.printf("MSG: %s\tCC: %u\tValue: %u\n", address, cc, value);
     MIDI.sendControlChange(cc, value, 1);
   } else if (msg.size() == 2 && msg.isFloat(0) && msg.isFloat(1)) {
     // XY pad, two values
     cc = getCC(address, 0);
     value = round(msg.getFloat(0));
     value = value > 127 ? 127 : value;
+    Serial.printf("MSG: %s\tCC: %u\tValue: %u\n", address, cc, value);
     MIDI.sendControlChange(cc, value, 1);
 
     cc = getCC(address, 1);
     value = round(msg.getFloat(1));
     value = value > 127 ? 127 : value;
+    Serial.printf("MSG: %s\tCC: %u\tValue: %u\n", address, cc, value);
     MIDI.sendControlChange(cc, value, 1);
   } else {
-    Serial.print("Cannot handle: ");
-    Serial.println(address);
+    Serial.printf("Cannot handle: %s\n", address);
   }
 }
 
