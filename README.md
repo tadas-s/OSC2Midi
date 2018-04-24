@@ -23,6 +23,12 @@ up ESP8266 and do MIDI i/o:
 Midi I/O uses [SoftwareSerial][5] mostly to allow debug logging via
 primary serial port.
 
+## Schematic
+
+Note! Do checkout the KiCad project instead. Image below is for quick preview only.
+
+![ESP8266 OSC to MIDI](esp8266-osc-to-midi.png)
+
 ## Hardware ideas / roadmap / TODO
 
   * Find a reasonable enclosure and adapt layout to it.
