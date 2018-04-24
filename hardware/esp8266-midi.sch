@@ -546,8 +546,6 @@ Wire Wire Line
 	8150 3350 8150 3150
 Wire Wire Line
 	8150 3150 8300 3150
-Text Notes 6450 3900 0    60   ~ 0
-Try R4 with 1K or\n2.7K as well.
 $Comp
 L ESP-12E U1
 U 1 1 5AC3DEE1
@@ -690,6 +688,4 @@ Wire Wire Line
 	7350 3100 7350 3300
 Wire Wire Line
 	7350 3300 7450 3300
-Text Notes 4950 3050 0    60   ~ 0
-TODO: solder GPIO16 back and test it
 $EndSCHEMATC
