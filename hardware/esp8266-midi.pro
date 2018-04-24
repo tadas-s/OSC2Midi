@@ -1,4 +1,4 @@
-update=Mon 09 Apr 2018 22:16:40 BST
+update=Tue 24 Apr 2018 20:54:44 BST
 version=1
 last_client=kicad
 [pcbnew]
@@ -139,3 +139,13 @@ LibName109=Battery_Management
 LibName110=Altera
 [general]
 version=1
+[schematic_editor]
+version=1
+PageLayoutDescrFile=
+PlotDirectoryName=
+SubpartIdSeparator=0
+SubpartFirstId=65
+NetFmtName=
+SpiceForceRefPrefix=0
+SpiceUseNetNumbers=0
+LabSize=60
