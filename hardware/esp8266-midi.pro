@@ -1,4 +1,4 @@
-update=Tue 24 Apr 2018 20:54:44 BST
+update=Sat 02 Jun 2018 12:01:59 BST
 version=1
 last_client=kicad
 [pcbnew]
@@ -137,8 +137,6 @@ LibName107=Connector
 LibName108=Bosch
 LibName109=Battery_Management
 LibName110=Altera
-[general]
-version=1
 [schematic_editor]
 version=1
 PageLayoutDescrFile=
@@ -149,3 +147,5 @@ NetFmtName=
 SpiceForceRefPrefix=0
 SpiceUseNetNumbers=0
 LabSize=60
+[general]
+version=1
