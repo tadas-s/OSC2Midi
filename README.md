@@ -18,7 +18,6 @@ up ESP8266 and do MIDI i/o:
 
   * [MIDI Input][4]
   * [MIDI Output][3]
-  * [Reset/flash peripherals][6]
 
 Midi I/O uses [SoftwareSerial][5] mostly to allow debug logging via
 primary serial port.
@@ -29,10 +28,14 @@ Note! Do checkout the KiCad project instead. Image below is for quick preview on
 
 ![ESP8266 OSC to MIDI](esp8266-osc-to-midi.png)
 
+## Flashing firmware
+
+To flash the firmware I'm using FTDI cable with [flash+reset circuit][8].
+
 ## Hardware ideas / roadmap / TODO
 
   * Find a reasonable enclosure and adapt layout to it.
-  * [MCP73833][8] based battery charging circuit + microusb input for power.
+  * [MCP73833][7] based battery charging circuit + microusb input for power.
   * Maaaaybe i2c screen.
 
 ## OSC message formats
@@ -53,7 +56,7 @@ example:
   * /midi/cc/10/12/15/3 -> CC to 15
 
 This is meant to be used with TouchOSC groups of faders. For example,
-my [MicroKORG][7] preset includes a fader group of 4 to control
+my [MicroKORG][6] preset includes a fader group of 4 to control
 amp ADSR: `/midi/cc/73/75/70/72`
 
 ### /midi/cc/{ccA}/{ccB} + 2 floats
@@ -66,6 +69,6 @@ meant to be used with TouchOSC XY pads.
 [3]: https://www.arduino.cc/en/Tutorial/Midi
 [4]: http://libremusicproduction.com/tutorials/arduino-and-midi-in
 [5]: https://www.arduino.cc/en/Reference/SoftwareSerial
-[6]: http://www.agcross.com/2015/09/the-esp8266-wifi-chip-part-3-flashing-custom-firmware/
-[7]: http://www.korg.com/us/products/synthesizers/microkorg/
-[8]: https://www.microchip.com/wwwproducts/en/en027785
+[6]: http://www.korg.com/us/products/synthesizers/microkorg/
+[7]: https://www.microchip.com/wwwproducts/en/en027785
+[8]: https://github.com/tadas-s/esp8266-autoreset
