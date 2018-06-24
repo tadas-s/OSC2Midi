@@ -64,6 +64,17 @@ amp ADSR: `/midi/cc/73/75/70/72`
 This sends two control change messages to `{ccA}` and `{ccB}`. This is
 meant to be used with TouchOSC XY pads.
 
+## Current prototype
+
+Rather crude build, but it works:
+
+![ESP8266 OSC to MIDI](1.jpg)
+
+![ESP8266 OSC to MIDI](2.jpg)
+
+![ESP8266 OSC to MIDI](3.jpg)
+
+
 [1]: http://hexler.net/software/touchosc
 [2]: https://en.wikipedia.org/wiki/Open_Sound_Control
 [3]: https://www.arduino.cc/en/Tutorial/Midi
