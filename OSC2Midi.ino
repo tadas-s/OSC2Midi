@@ -72,15 +72,6 @@ void OSCToMidiCC(OSCMessage &msg, int offset) {
   }
 }
 
-/**
-   Extract control code from the OSC address. For multi
-   elements - pick the number indicated by the last digit.
-
-   /40 -> 40
-   /50/1 -> 50
-   /50/60/1 -> 50
-   /50/60/2 -> 60
-*/
 uint8_t getCC(char *str, int index) {
   String s = String(str);
 
