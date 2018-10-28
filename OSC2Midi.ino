@@ -5,17 +5,50 @@
 #include <OSCData.h>
 #include <SoftwareSerial.h>
 #include <MIDI.h>
+#include <TickerScheduler.h>
 
 WiFiUDP udp;
 
 /**
-   source address of last OSC message for midi2osc messages.
+  source address of last OSC message for midi2osc messages.
 */
 IPAddress clientIP;
 
 SoftwareSerial midiSerialPort(4, 5); // RX, TX pins to be used for ss port
 
 MIDI_CREATE_INSTANCE(SoftwareSerial, midiSerialPort, MIDI);
+
+/**
+ * Glide setting for smooth transition from one control value to another.
+ */
+float glide = 1.0;
+
+/**
+ * Scheduler for running the glide task.
+ */
+TickerScheduler scheduler(1);
+
+class ControlChangeState {
+  public:
+    uint8_t targetValue;
+    float currentValue;
+    bool complete = true;
+    bool initialized = false;
+
+    void setTarget(uint8_t newTargetValue) {
+      if (initialized) {
+        targetValue = newTargetValue;
+        complete = false;
+      } else {
+        initialized = true;
+        complete = true;
+        targetValue = newTargetValue;
+        currentValue = (float)newTargetValue;        
+      }
+    }
+};
+
+ControlChangeState ccStates[128];
 
 void setup() {
   delay(1000); // very important bit for Access Point to work properly... ¯\_(ツ)_/¯
@@ -39,6 +72,8 @@ void setup() {
   pinMode(4, INPUT_PULLUP);
   pinMode(5, OUTPUT);
   midiSerialPort.begin(31250);
+
+  scheduler.add(0, 100, glideTask);
 }
 
 void OSCToMidiCC(OSCMessage &msg, int offset) {
@@ -114,6 +149,44 @@ void MidiCCToOSC(uint8_t channel, uint8_t number, uint8_t value) {
   udp.endPacket();
 }
 
+void OSCSetSettings(OSCMessage &msg, int offset) {
+  char address[100] = { 0 };
+
+  msg.getAddress(address, offset, sizeof(address));
+
+  if (msg.size() == 1 && msg.isFloat(0)) {
+    if (strcmp(address, "/glide") == 0) {
+      glide = msg.getFloat(0);
+      Serial.printf("Setting glide to: %f\n", glide);
+    }
+  } else {
+    Serial.printf("Cannot handle: %s\n", address);
+  }
+}
+
+void glideTask() {
+  for(uint8_t cc = 0; cc < 128; cc++) {
+    ControlChangeState *ccState = &ccStates[cc];
+
+    if(ccState->complete) {
+      continue;
+    }
+
+    if(round((float)ccState->targetValue - ccState->currentValue) != 0) {
+      if((float)ccState->targetValue > ccState->currentValue) {
+        ccState->currentValue += glide;
+      } else {
+        ccState->currentValue -= glide;
+      }      
+    } else {
+      // We've reached zero difference between current and target
+      ccState->complete = true;  
+    }
+
+    MIDI.sendControlChange(cc, round(ccState->currentValue), 1);
+  }
+}
+
 void loop() {
   OSCMessage msg;
   uint8_t buffer[1024];
@@ -126,6 +199,7 @@ void loop() {
 
     if (!msg.hasError()) {
       msg.route("/midi/cc", OSCToMidiCC);
+      msg.route("/midi/settings", OSCSetSettings);
     } else {
       int error = msg.getError();
       Serial.print("error: ");
@@ -138,5 +212,7 @@ void loop() {
 
   // Check if there are any CC messages from synth itself
   MIDI.read();
+
+  scheduler.update();
 }
 
