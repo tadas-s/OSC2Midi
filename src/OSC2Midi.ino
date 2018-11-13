@@ -44,8 +44,33 @@ class ControlChangeState {
         initialized = true;
         complete = true;
         targetValue = newTargetValue;
-        currentValue = (float)newTargetValue;        
+        currentValue = (float)newTargetValue;
       }
+    }
+
+    /**
+     * Update the control value state, i.e. move towards the desired target.
+     *
+     * @return bool true if state has changed and coresponding midi CC value should be sent
+     */
+    bool update(float glideSetting) {
+      // No need to send midi cc if state is complete
+      if(complete) {
+        return false;
+      }
+
+      if(round((float)targetValue - currentValue) != 0) {
+        if((float)targetValue > currentValue) {
+          currentValue += glideSetting;
+        } else {
+          currentValue -= glideSetting;
+        }
+      } else {
+        // We've reached zero difference between current and target
+        complete = true;
+      }
+
+      return true;
     }
 };
 
@@ -53,7 +78,7 @@ ControlChangeState ccStates[128];
 
 void setup() {
   delay(1000); // very important bit for Access Point to work properly... ¯\_(ツ)_/¯
-  
+
   Serial.begin(115200);
   Serial.println();
   Serial.println("Hello OSC2Midi!");
@@ -173,23 +198,10 @@ void glideTask() {
   for(uint8_t cc = 0; cc < 128; cc++) {
     ControlChangeState *ccState = &ccStates[cc];
 
-    if(ccState->complete) {
-      continue;
+    if(ccState->update(glide)) {
+      Serial.printf("Glide CC: %u\tValue: %u\n", cc, (uint8_t)round(ccState->currentValue));
+      MIDI.sendControlChange(cc, round(ccState->currentValue), 1);
     }
-
-    if(round((float)ccState->targetValue - ccState->currentValue) != 0) {
-      if((float)ccState->targetValue > ccState->currentValue) {
-        ccState->currentValue += glide;
-      } else {
-        ccState->currentValue -= glide;
-      }      
-    } else {
-      // We've reached zero difference between current and target
-      ccState->complete = true;  
-    }
-
-    Serial.printf("Glide CC: %u\tValue: %u\n", cc, (uint8_t)round(ccState->currentValue));
-    MIDI.sendControlChange(cc, round(ccState->currentValue), 1);
   }
 }
 
