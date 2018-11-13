@@ -48,12 +48,18 @@ class ControlChangeState {
       }
     }
 
+    uint8_t getCurrentValue() {
+      return round(currentValue);
+    }
+
     /**
      * Update the control value state, i.e. move towards the desired target.
      *
      * @return bool true if state has changed and coresponding midi CC value should be sent
      */
     bool update(float glideSetting) {
+      uint8_t previousValue = getCurrentValue();
+
       // No need to send midi cc if state is complete
       if(complete) {
         return false;
@@ -70,7 +76,11 @@ class ControlChangeState {
         complete = true;
       }
 
-      return true;
+      if(previousValue != getCurrentValue()) {
+        return true;
+      } else {
+        return false;
+      }
     }
 };
 
@@ -196,11 +206,9 @@ void OSCSetSettings(OSCMessage &msg, int offset) {
 
 void glideTask() {
   for(uint8_t cc = 0; cc < 128; cc++) {
-    ControlChangeState *ccState = &ccStates[cc];
-
-    if(ccState->update(glide)) {
-      Serial.printf("Glide CC: %u\tValue: %u\n", cc, (uint8_t)round(ccState->currentValue));
-      MIDI.sendControlChange(cc, round(ccState->currentValue), 1);
+    if(ccStates[cc].update(glide)) {
+      Serial.printf("Glide CC: %u\tValue: %u\n", cc, ccStates[cc].getCurrentValue());
+      MIDI.sendControlChange(cc, ccStates[cc].getCurrentValue(), 1);
     }
   }
 }
