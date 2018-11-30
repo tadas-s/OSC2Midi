@@ -574,18 +574,16 @@ NoConn ~ 5100 4000
 $Comp
 L Connector1:Conn_01x02 J7
 U 1 1 5C040B63
-P 5700 4225
-F 0 "J7" H 5780 4217 50  0000 L CNN
-F 1 "Debug serial out" H 5780 4126 50  0000 L CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm" H 5700 4225 50  0001 C CNN
-F 3 "~" H 5700 4225 50  0001 C CNN
-	1    5700 4225
-	1    0    0    -1  
+P 5700 4325
+F 0 "J7" H 5780 4317 50  0000 L CNN
+F 1 "Debug serial out" H 5780 4226 50  0000 L CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm" H 5700 4325 50  0001 C CNN
+F 3 "~" H 5700 4325 50  0001 C CNN
+	1    5700 4325
+	1    0    0    1   
 $EndComp
 Wire Wire Line
 	5300 4500 5300 4225
-Wire Wire Line
-	5300 4225 5500 4225
 $Comp
 L power1:GND #PWR014
 U 1 1 5C0439C0
@@ -599,8 +597,6 @@ F 3 "" H 5400 4425 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	5400 4425 5400 4325
-Wire Wire Line
-	5400 4325 5500 4325
 Wire Wire Line
 	5100 4500 5300 4500
 $Comp
@@ -703,4 +699,8 @@ F 3 "" H 9425 5075 50  0001 C CNN
 	1    9425 5075
 	0    1    1    0   
 $EndComp
+Wire Wire Line
+	5400 4325 5500 4325
+Wire Wire Line
+	5300 4225 5500 4225
 $EndSCHEMATC
