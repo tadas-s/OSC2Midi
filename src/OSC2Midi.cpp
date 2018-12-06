@@ -1,3 +1,4 @@
+#include <Arduino.h>
 #include <ESP8266WiFi.h>
 #include <WiFiUdp.h>
 #include <OSCMessage.h>
@@ -5,6 +6,9 @@
 #include <OSCData.h>
 #include <SoftwareSerial.h>
 #include <MIDI.h>
+#include <OSC2Midi.h>
+
+void MidiCCToOSC(uint8_t channel, uint8_t number, uint8_t value);
 
 WiFiUDP udp;
 
@@ -70,31 +74,6 @@ void OSCToMidiCC(OSCMessage &msg, int offset) {
   } else {
     Serial.printf("Cannot handle: %s\n", address);
   }
-}
-
-uint8_t getCC(char *str, int index) {
-  String s = String(str);
-
-  // drop the first /
-  if (s.startsWith("/")) {
-    s = s.substring(1);
-  }
-
-  if (index == -1) {
-    // Index is not specified - pick the last digit then
-    index = s.substring(s.lastIndexOf("/") + 1).toInt() - 1;
-  }
-
-  while (index > 0) {
-    s = s.substring(s.indexOf("/") + 1);
-    index--;
-  }
-
-  return s.toInt();
-}
-
-uint8_t getCC(char *str) {
-  return getCC(str, -1);
 }
 
 void MidiCCToOSC(uint8_t channel, uint8_t number, uint8_t value) {
