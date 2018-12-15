@@ -95,9 +95,10 @@ void loop() {
     msg.fill(buffer, size);
 
     if (!msg.hasError()) {
+      DEBUG_OSC_MESSAGE(msg);
       msg.route("/midi/cc", OSCToMidiCC);
     } else {
-      DEBUG_MSG("Error parsing OSC message: %d", msg.getError());
+      DEBUG_MSG("Error parsing OSC message: %d\n", msg.getError());
     }
 
     // Keep track of the client IP address for "talking back"
