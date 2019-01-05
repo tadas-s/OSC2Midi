@@ -20,6 +20,10 @@ IPAddress clientIP;
  MIDI_CREATE_INSTANCE(HardwareSerial, Serial, MIDI);
 
 void setup() {
+  // Midi via UART0
+  Serial.begin(31250);
+  Serial.swap();
+
 #ifdef DEBUG
   // Debug via UART1 TX only
   Serial1.begin(115200, SERIAL_8N1, SERIAL_TX_ONLY, 2);
@@ -34,8 +38,6 @@ void setup() {
 
   udp.begin(8000);
 
-  // Midi via UART0
-  Serial.begin(31250);
   MIDI.setHandleControlChange(MidiCCToOSC);
 }
 
