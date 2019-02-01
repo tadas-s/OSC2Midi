@@ -15,7 +15,7 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L Connector1:DIN-5_180degree J2
+L esp8266-midi-rescue:DIN-5_180degree-Connector1 J2
 U 1 1 5AA0E52B
 P 9125 5175
 F 0 "J2" H 9250 5400 50  0000 C CNN
@@ -26,7 +26,7 @@ F 3 "" H 9125 5175 50  0001 C CNN
 	-1   0    0    -1  
 $EndComp
 $Comp
-L Connector1:DIN-5_180degree J1
+L esp8266-midi-rescue:DIN-5_180degree-Connector1 J1
 U 1 1 5AA0E5AD
 P 9125 2900
 F 0 "J1" H 9250 3125 50  0000 C CNN
@@ -37,7 +37,7 @@ F 3 "" H 9125 2900 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power1:GND #PWR01
+L esp8266-midi-rescue:GND-power1 #PWR01
 U 1 1 5AA0E6C2
 P 8925 4675
 F 0 "#PWR01" H 8925 4425 50  0001 C CNN
@@ -81,7 +81,7 @@ F 3 "" H 8225 3150 60  0000 C CNN
 	-1   0    0    -1  
 $EndComp
 $Comp
-L device:D D1
+L esp8266-midi-rescue:D-device D1
 U 1 1 5AA1AFB6
 P 8675 3150
 F 0 "D1" H 8675 3250 50  0000 C CNN
@@ -114,7 +114,7 @@ F 3 "" H 7775 3100 50  0001 C CNN
 	0    -1   1    0   
 $EndComp
 $Comp
-L power1:GND #PWR04
+L esp8266-midi-rescue:GND-power1 #PWR04
 U 1 1 5AA1CB1B
 P 7875 3450
 F 0 "#PWR04" H 7875 3200 50  0001 C CNN
@@ -131,7 +131,7 @@ NoConn ~ 9425 5175
 NoConn ~ 8825 2900
 NoConn ~ 9425 2900
 $Comp
-L regul:LD1117S50TR_SOT223 U3
+L esp8266-midi-rescue:LD1117S50TR_SOT223-regul U3
 U 1 1 5AA2FC6F
 P 5775 1675
 F 0 "U3" H 5625 1800 50  0000 C CNN
@@ -142,7 +142,7 @@ F 3 "" H 5875 1425 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L device:CP C4
+L esp8266-midi-rescue:CP-device C4
 U 1 1 5AA30545
 P 7375 1925
 F 0 "C4" H 7400 2025 50  0000 L CNN
@@ -175,7 +175,7 @@ F 3 "" H 5375 1925 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power1:GND #PWR07
+L esp8266-midi-rescue:GND-power1 #PWR07
 U 1 1 5AA310B5
 P 5775 2275
 F 0 "#PWR07" H 5775 2025 50  0001 C CNN
@@ -186,7 +186,7 @@ F 3 "" H 5775 2275 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector1:Conn_01x01_Male J4
+L esp8266-midi-rescue:Conn_01x01_Male-Connector1 J4
 U 1 1 5AA3271F
 P 4975 1675
 F 0 "J4" H 4975 1775 50  0000 C CNN
@@ -197,7 +197,7 @@ F 3 "" H 4975 1675 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector1:Conn_01x01_Male J5
+L esp8266-midi-rescue:Conn_01x01_Male-Connector1 J5
 U 1 1 5AA327AB
 P 4975 2175
 F 0 "J5" H 4975 2275 50  0000 C CNN
@@ -220,7 +220,7 @@ F 3 "" H 5250 5250 50  0001 C CNN
 $EndComp
 NoConn ~ 9125 2600
 $Comp
-L rfcom:ESP-12E U1
+L esp8266-midi-rescue:ESP-12E-rfcom U1
 U 1 1 5AC3DEE1
 P 4200 4600
 F 0 "U1" H 3500 5600 50  0000 C CNN
@@ -231,7 +231,7 @@ F 3 "" H 3850 4900 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power1:GND #PWR08
+L esp8266-midi-rescue:GND-power1 #PWR08
 U 1 1 5AC3E798
 P 4200 5800
 F 0 "#PWR08" H 4200 5550 50  0001 C CNN
@@ -242,7 +242,7 @@ F 3 "" H 4200 5800 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power1:GND #PWR011
+L esp8266-midi-rescue:GND-power1 #PWR011
 U 1 1 5AC41342
 P 5250 5500
 F 0 "#PWR011" H 5250 5250 50  0001 C CNN
@@ -262,7 +262,7 @@ NoConn ~ 5100 5200
 NoConn ~ 5100 5100
 NoConn ~ 5100 4300
 $Comp
-L pspice1:R R6
+L esp8266-midi-rescue:R-pspice1 R6
 U 1 1 5B127227
 P 3850 3450
 F 0 "R6" V 3930 3450 50  0000 C CNN
@@ -273,7 +273,7 @@ F 3 "" H 3850 3450 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L pspice1:R R8
+L esp8266-midi-rescue:R-pspice1 R8
 U 1 1 5B1275B7
 P 4550 3450
 F 0 "R8" V 4630 3450 50  0000 C CNN
@@ -367,7 +367,7 @@ Wire Wire Line
 Wire Wire Line
 	3250 3800 3300 3800
 $Comp
-L pspice1:R R3
+L esp8266-midi-rescue:R-pspice1 R3
 U 1 1 5B12802D
 P 3000 4000
 F 0 "R3" V 3080 4000 50  0000 C CNN
@@ -382,7 +382,7 @@ Wire Wire Line
 Wire Wire Line
 	2750 4000 2700 4000
 $Comp
-L Connector1:Conn_01x06 J3
+L esp8266-midi-rescue:Conn_01x06-Connector1 J3
 U 1 1 5AA1FA8A
 P 2025 2900
 F 0 "J3" H 2025 3200 50  0000 C CNN
@@ -435,7 +435,7 @@ F 3 "http://www.ti.com/lit/sg/scyt129e/scyt129e.pdf" H 8100 4075 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector1:DIN-5_180degree J6
+L esp8266-midi-rescue:DIN-5_180degree-Connector1 J6
 U 1 1 5BF9BC6A
 P 9125 4175
 F 0 "J6" H 9250 4400 50  0000 C CNN
@@ -446,7 +446,7 @@ F 3 "" H 9125 4175 50  0001 C CNN
 	-1   0    0    -1  
 $EndComp
 $Comp
-L power1:GND #PWR012
+L esp8266-midi-rescue:GND-power1 #PWR012
 U 1 1 5BF9BC71
 P 8925 3675
 F 0 "#PWR012" H 8925 3425 50  0001 C CNN
@@ -516,7 +516,7 @@ Wire Wire Line
 Wire Wire Line
 	3250 3450 3600 3450
 $Comp
-L power1:GND #PWR05
+L esp8266-midi-rescue:GND-power1 #PWR05
 U 1 1 5C00E9E6
 P 2325 3200
 F 0 "#PWR05" H 2325 2950 50  0001 C CNN
@@ -537,7 +537,7 @@ Wire Wire Line
 NoConn ~ 5100 3900
 NoConn ~ 5100 4000
 $Comp
-L Connector1:Conn_01x02 J7
+L esp8266-midi-rescue:Conn_01x02-Connector1 J7
 U 1 1 5C040B63
 P 3375 2025
 F 0 "J7" H 3455 2017 50  0000 L CNN
@@ -548,7 +548,7 @@ F 3 "~" H 3375 2025 50  0001 C CNN
 	1    0    0    1   
 $EndComp
 $Comp
-L power1:GND #PWR014
+L esp8266-midi-rescue:GND-power1 #PWR014
 U 1 1 5C0439C0
 P 3075 2125
 F 0 "#PWR014" H 3075 1875 50  0001 C CNN
