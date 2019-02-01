@@ -1,6 +1,30 @@
 EESchema-LIBRARY Version 2.4
 #encoding utf-8
 #
+# 74xGxx_74LVC2G14
+#
+DEF 74xGxx_74LVC2G14 U 0 40 Y Y 2 F N
+F0 "U" -100 150 50 H V C CNN
+F1 "74xGxx_74LVC2G14" 0 -150 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+$FPLIST
+ SG-*
+ SOT*
+$ENDFPLIST
+DRAW
+P 3 0 1 0 -75 25 -50 25 -50 -25 N
+P 4 0 1 10 -150 100 -150 -100 100 0 -150 100 N
+P 4 0 1 0 -100 25 -75 25 -75 -25 -25 -25 N
+X GND 2 0 -100 0 D 40 40 0 1 W N
+X VCC 5 0 100 0 U 40 40 0 1 W N
+X ~ 1 -300 0 150 R 40 40 1 1 I
+X ~ 6 250 0 150 L 40 40 1 1 O I
+X ~ 3 -300 0 150 R 40 40 2 1 I
+X ~ 4 250 0 150 L 40 40 2 1 O I
+ENDDRAW
+ENDDEF
+#
 # Connector1_Conn_01x01_Male
 #
 DEF Connector1_Conn_01x01_Male J 0 40 Y N 1 F N
@@ -18,6 +42,30 @@ DRAW
 S 34 5 0 -5 1 1 6 F
 P 2 1 1 6 50 0 34 0 N
 X Pin_1 1 200 0 150 L 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
+# Connector1_Conn_01x02
+#
+DEF Connector1_Conn_01x02 J 0 40 Y N 1 F N
+F0 "J" 0 100 50 H V C CNN
+F1 "Connector1_Conn_01x02" 0 -200 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+$FPLIST
+ Connector*:*_??x*mm*
+ Connector*:*1x??x*mm*
+ Pin?Header?Straight?1X*
+ Pin?Header?Angled?1X*
+ Socket?Strip?Straight?1X*
+ Socket?Strip?Angled?1X*
+$ENDFPLIST
+DRAW
+S -50 -95 0 -105 1 1 6 N
+S -50 5 0 -5 1 1 6 N
+S -50 50 50 -150 1 1 10 f
+X Pin_1 1 -200 0 150 R 50 50 1 1 P
+X Pin_2 2 -200 -100 150 R 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
@@ -219,22 +267,6 @@ X ~ 2 0 -150 50 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# power1_+3.3V
-#
-DEF power1_+3.3V #PWR 0 0 Y Y 1 F P
-F0 "#PWR" 0 -150 50 H I C CNN
-F1 "power1_+3.3V" 0 140 50 H V C CNN
-F2 "" 0 0 50 H I C CNN
-F3 "" 0 0 50 H I C CNN
-ALIAS +3.3V
-DRAW
-P 2 0 1 0 -30 50 0 100 N
-P 2 0 1 0 0 0 0 100 N
-P 2 0 1 0 0 100 30 50 N
-X +3V3 1 0 0 0 U 50 50 1 1 W N
-ENDDRAW
-ENDDEF
-#
 # power1_GND
 #
 DEF power1_GND #PWR 0 0 Y Y 1 F P
@@ -245,6 +277,20 @@ F3 "" 0 0 50 H I C CNN
 DRAW
 P 6 0 1 0 0 0 0 -50 50 -50 0 -100 -50 -50 0 -50 N
 X GND 1 0 0 0 D 50 50 1 1 W N
+ENDDRAW
+ENDDEF
+#
+# power_VCC
+#
+DEF power_VCC #PWR 0 0 Y Y 1 F P
+F0 "#PWR" 0 -150 50 H I C CNN
+F1 "power_VCC" 0 150 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+DRAW
+C 0 75 25 0 1 0 N
+P 2 0 1 0 0 0 0 50 N
+X VCC 1 0 0 0 U 50 50 1 1 W N
 ENDDRAW
 ENDDEF
 #

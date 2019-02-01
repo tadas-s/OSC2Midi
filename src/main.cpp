@@ -1,13 +1,12 @@
+#include "debug.h"
 #include <Arduino.h>
 #include <ESP8266WiFi.h>
 #include <WiFiUdp.h>
 #include <OSCMessage.h>
 #include <OSCBundle.h>
 #include <OSCData.h>
-#include <SoftwareSerial.h>
 #include <MIDI.h>
 #include <OSC2Midi.h>
-#include "debug.h"
 
 void MidiCCToOSC(uint8_t channel, uint8_t number, uint8_t value);
 
@@ -18,22 +17,18 @@ WiFiUDP udp;
 */
 IPAddress clientIP;
 
-SoftwareSerial midiSerialPort(4, 5); // RX, TX pins to be used for ss port
-
-MIDI_CREATE_INSTANCE(SoftwareSerial, midiSerialPort, MIDI);
-
-// Built-in led used to show activity status
-#define LED_BUILTIN 2
-bool led = false;
+ MIDI_CREATE_INSTANCE(HardwareSerial, Serial, MIDI);
 
 void setup() {
-  // The MIDI input used in project is always pulled high,
-  // so don't try to "fight" and pull the input pin up as well
-  pinMode(4, INPUT_PULLUP);
-  pinMode(5, OUTPUT);
-  pinMode(LED_BUILTIN, OUTPUT);
+  // Midi via UART0
+  Serial.begin(31250);
+  Serial.swap();
 
-  Serial.begin(115200);
+#ifdef DEBUG
+  // Debug via UART1 TX only
+  Serial1.begin(115200, SERIAL_8N1, SERIAL_TX_ONLY, 2);
+  Serial1.setDebugOutput(true);
+#endif
 
   DEBUG_MSG("\nHello OSC2Midi!\n");
 
@@ -44,8 +39,6 @@ void setup() {
   udp.begin(8000);
 
   MIDI.setHandleControlChange(MidiCCToOSC);
-
-  midiSerialPort.begin(31250);
 }
 
 void OSCToMidiCC(OSCMessage &msg, int offset) {
@@ -104,11 +97,10 @@ void loop() {
     msg.fill(buffer, size);
 
     if (!msg.hasError()) {
+      DEBUG_OSC_MESSAGE(msg);
       msg.route("/midi/cc", OSCToMidiCC);
-      led = !led;
-      digitalWrite(LED_BUILTIN, led);
     } else {
-      DEBUG_MSG("Error parsing OSC message: %d", msg.getError());
+      DEBUG_MSG("Error parsing OSC message: %d\n", msg.getError());
     }
 
     // Keep track of the client IP address for "talking back"
