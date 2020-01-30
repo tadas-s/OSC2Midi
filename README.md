@@ -74,6 +74,12 @@ Rather crude build, but it works:
 
 ![ESP8266 OSC to MIDI](3.jpg)
 
+## Hello people of the future
+
+So it seems GitHub is about to take a snapshot of active open source repositories
+and put it into cold storage that should last 1000 years. Hence this section:
+a change for the sake of it. Exact criteria is not clear, but hope this
+repository makes it to the archive.
 
 [1]: http://hexler.net/software/touchosc
 [2]: https://en.wikipedia.org/wiki/Open_Sound_Control
